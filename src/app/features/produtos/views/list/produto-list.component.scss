@@ -1,0 +1,7 @@
+@import "../../../../../styles.scss";
+
+:host {
+    @extend .app-card;
+    width: 500px;
+    height: 400px;
+}
