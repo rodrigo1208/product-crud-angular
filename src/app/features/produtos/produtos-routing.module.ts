@@ -5,17 +5,22 @@ import { ProdutoFormComponent } from './views/form/produto-form.component';
 
 const routes: Route[] = [
     {
-        path: "produtos",
+        path: 'produtos',
         children: [
             {
-                path: "",
+                path: '',
                 component: ProdutoListComponent
             },
             {
-                path: ":new",
+                path: ':produtoId',
                 component: ProdutoFormComponent
             }
         ]
+    },
+    {
+        path: '**',
+        redirectTo: 'produtos',
+        pathMatch: 'full'
     }
 ]
 

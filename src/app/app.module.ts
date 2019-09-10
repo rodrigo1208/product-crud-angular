@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { LoadingModule } from './core/components/loading/loading.module';
+import { ErrorModule } from './core/components/error/error.module';
 
 
 @NgModule({
@@ -9,8 +11,10 @@ import { AppRoutingModule } from './app-routing.module';
     AppComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
+    LoadingModule.forRoot(),
+    ErrorModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

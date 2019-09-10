@@ -1,3 +1,29 @@
-<div class="app-card">
-    
+<h4>Lista de produtos</h4>
+
+<div class="mt-4 mb-4">
+    <button type="button" class="btn btn-primary" (click)="adicionarClick()">Adicionar</button>
+</div>
+
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Código</th>
+                <th>Ativo</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody> 
+            <tr *ngFor="let produto of produtos">
+                <td>{{ produto.nome }}</td>
+                <td>{{ produto.codigo }}</td>
+                <td>{{ produto.ativo }}</td>
+                <td>
+                    <button type="button" class="btn btn-primary mr-1" (click)="editarClick(produto)">Editar</button>
+                    <button type="button" class="btn btn-danger" (click)="apagarClick(produto)">Apagar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>

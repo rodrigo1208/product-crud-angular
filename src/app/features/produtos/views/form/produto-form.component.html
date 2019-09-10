@@ -1,19 +1,26 @@
-<h3>Cadastro de produtos</h3>
-<form>
+<h4>Cadastro de produtos</h4>
+<form [formGroup]="formGroup">
     <div class="form-group">
-        <label for="nome">Nome</label>
-        <input id="nome" type="text" class="form-control">
+        <label for="nome">Nome *</label>
+        <input id="nome" type="text" class="form-control" formControlName="nome">
+        <span *ngIf="invalidField('nome')" class="form-error">Nome é obrigatório</span>
     </div>
     <div class="form-group">
-        <label for="codigo">Código</label>
-        <input id="codigo" type="text" class="form-control">
+        <label for="codigo">Código *</label>
+        <input id="codigo" type="text" class="form-control" formControlName="codigo">
+        <span *ngIf="invalidField('codigo')" class="form-error">Código é obrigatório</span>
     </div>
     <div class="form-check">
-        <input id="ativo" type="checkbox" class="form-check-input" value="true">
-        <label class="form-check-label" for="ativo">Ativo</label>
+        <input id="ativo" type="checkbox" class="form-check-input" formControlName="ativo" >
+        <label class="form-check-label" for="ativo">Ativo *</label>
+        <span *ngIf="invalidField('ativo')" class="form-error">Ativo é obrigatório</span>
     </div>
     <div class="form-group">
         <label for="observacao">Observação</label>
-        <textarea name="observacao" id="observacao" cols="30" rows="5" class="form-control"></textarea>
+        <textarea name="observacao" 
+            id="observacao" cols="30" rows="5" 
+            class="form-control" formControlName="observacao"></textarea>
     </div>
 </form>
+<button type="button" class="btn btn-primary" (click)="salvar()">Salvar</button>
+<button type="button" class="btn btn-link" (click)="voltar()" >Cancelar</button>

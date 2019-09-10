@@ -2,10 +2,10 @@ import * as uuid from "uuid";
 
 export class Produto {
     private _id: string;
-    public nome: string;
-    public codigo: string;
-    public ativo: boolean;
-    public observacao?: string;
+    private _nome: string;
+    private _codigo: string;
+    private _ativo: boolean;
+    private _observacao?: string;
 
     constructor(produto?: Produto) {
         if (!produto) {
@@ -13,13 +13,39 @@ export class Produto {
         }
 
         this._id = produto.id || uuid.v4();
-        this.nome = produto.nome;
-        this.codigo = produto.codigo;
-        this.ativo = produto.ativo;
-        this.observacao = produto.observacao;
+        this._nome = produto.nome;
+        this._codigo = produto.codigo;
+        this._ativo = produto.ativo;
+        this._observacao = produto.observacao;
     }
 
     public get id() {
         return this._id;
+    }
+    
+    public get nome() {
+        return this._nome;
+    }
+
+    public get codigo() {
+        return this._codigo;
+    }
+
+    public get ativo() {
+        return this._ativo;
+    }
+
+    public get observacao() {
+        return this._observacao;
+    }
+
+    public toJson() {
+        return {
+            id: this._id,
+            nome: this._nome,
+            codigo: this._codigo,
+            ativo: this._ativo,
+            observacao: this._observacao
+        };
     }
 }
